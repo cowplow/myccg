@@ -1,7 +1,11 @@
 Rails.application.routes.draw do
   root to: 'pages#front'
 
-  resources :cards, only: [:new, :create, :edit, :update]
+  get 'sign_in', to: 'sessions#new'
+  post 'sign_in', to: 'sessions#create'
+  get 'sign_out', to: 'sessions#destroy'
+
+  resources :cards, only: [:new, :create, :edit, :update, :show]
 
   resources :card_types, only: [:new, :create, :edit, :update]
 
@@ -10,4 +14,6 @@ Rails.application.routes.draw do
   resources :factions, except: [:destroy]
 
   resources :expansions, except: [:destroy]
+
+  resources :users, only: [:show, :create, :edit, :update, :new]
 end

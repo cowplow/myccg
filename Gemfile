@@ -13,6 +13,7 @@ gem 'jquery-rails'
 gem 'pg'
 gem 'therubyracer',  platforms: :ruby
 gem 'bcrypt-ruby', '~> 3.1.2'
+gem 'slugable_ctrembley'
 
 group :development do
   gem 'thin'
