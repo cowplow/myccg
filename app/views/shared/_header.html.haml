@@ -28,7 +28,7 @@
           %span.caret
         %ul.dropdown-menu(role="menu" aria-labelledby="dlabel")
           %li(role="presentation")
-            = link_to "Your Profile", edit_user_path
+            = link_to "Your Profile", edit_user_path(current_user)
           %li(role="presentation")
             = link_to "Cards", "#", { role: "menuitem" }
           %li.divider
