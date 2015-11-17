@@ -1,11 +1,44 @@
 %section#top-header.row
   .col-md-2.clearfix
-    = link_to "My LCG"
+    = link_to "Amaranthe CCG"
   .col-md-10.clearfix
-    = link_to "Cards"
-    = link_to "Factions"
-    = link_to "Expansions"
-    = link_to "Card Types"
-    = link_to "Card Subtypes"
-    = link_to "Edit Pages"
-    = link_to "New User", new_user_path
+    - if !logged_in?
+      = link_to 'Register', new_user_path
+      = link_to 'Login', sign_in_path
+    - if logged_in? && current_user.is_super_user?
+      .dropdown
+        %button.btn.btn-default.dropdown-toggle(type="button" id="dlabel" data-toggle="dropdown")
+          Make New Things
+          %span.caret
+        %ul.dropdown-menu(role="menu" aria-labelledby="dlabel")
+          %li(role="presentation")
+            = link_to "Cards", "#", { role: "menuitem" }
+          %li.divider
+          %li{ role: "presentation", class: ("disabled" unless current_user.is_admin?) }
+            = link_to "Factions", "#", role: "menuitem"
+          %li{ role: "presentation", class: ("disabled" unless current_user.is_admin?) }
+            = link_to "Expansions", "#", { role: "menuitem" }
+          %li{ role: "presentation", class: ("disabled" unless current_user.is_admin?) }
+            = link_to "Card Types", "#", { role: "menuitem" }
+          %li{ role: "presentation", class: ("disabled" unless current_user.is_admin?) }
+            = link_to "Card Subtypes", "#", { role: "menuitem" }
+      .dropdown
+        %button.btn.btn-default.dropdown-toggle(type="button" id="dlabel" data-toggle="dropdown")
+          Edit Things
+          %span.caret
+        %ul.dropdown-menu(role="menu" aria-labelledby="dlabel")
+          %li(role="presentation")
+            = link_to "Your Profile", edit_user_path
+          %li(role="presentation")
+            = link_to "Cards", "#", { role: "menuitem" }
+          %li.divider
+          %li{ role: "presentation", class: ("disabled" unless current_user.is_admin?) }
+            = link_to "Factions", "#", role: "menuitem"
+          %li{ role: "presentation", class: ("disabled" unless current_user.is_admin?) }
+            = link_to "Expansions", "#", { role: "menuitem" }
+          %li{ role: "presentation", class: ("disabled" unless current_user.is_admin?) }
+            = link_to "Card Types", "#", { role: "menuitem" }
+          %li{ role: "presentation", class: ("disabled" unless current_user.is_admin?) }
+            = link_to "Card Subtypes", "#", { role: "menuitem" }
+    - if logged_in?
+      = link_to 'Sign Out', sign_out_path

@@ -3,8 +3,6 @@ class UsersController < ApplicationController
   before_action :require_same_user, only: [:edit, :udpate]
 
   def new
-    cant_register_after_login
-
     @user = User.new
   end
 
@@ -12,9 +10,12 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
 
     if @user.save
-      session[:user_id] = @user.id
-      flash[:success] = "Your profile has been created!"
-      redirect_to sign_in_path
+      flash[:success] = "A new profile has been created!"
+      if !logged_in?
+        redirect_to sign_in_path
+      else
+        render :new
+      end
     else
       render :new
     end
@@ -38,11 +39,11 @@ class UsersController < ApplicationController
   private
 
   def user_params
-    params.require(:user).permit(:username, :password, :name)
+    params.require(:user).permit(:username, :password, :name, :authority)
   end
 
   def set_user
-    @user = User.find_by(id: params[:id])
+    @user = User.find_by(slug: params[:id])
   end
 
   def require_same_user
