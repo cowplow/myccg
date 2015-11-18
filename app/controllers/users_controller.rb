@@ -10,14 +10,12 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
 
     if @user.save
-      flash[:success] = "A new profile has been created!"
-      if !logged_in?
-        redirect_to sign_in_path
-      else
-        render :new
-      end
+      session[:user_id] = @user.id
+      flash[:success] = "Profile created!"
+      flash[:info] = "Contact Chris for additional functionality."
+      redirect_to root_path
     else
-      render :new
+        render :new
     end
   end
 
@@ -26,7 +24,7 @@ class UsersController < ApplicationController
 
   def update
     if @user.update(user_params)
-      flash[:success] = "Profile Updated"
+      flash[:success] = "Profile Updated!"
       redirect_to user_path(@user)
     else
       render :edit
