@@ -1,5 +1,5 @@
 #rules-container
-  %h1 
+  %h1.text-center
     %u
       Learn to play Amaranthe
   .panel-group
@@ -10,16 +10,111 @@
         %h4
           %em
             It is said there existed a flower whose beauty never faded, the Amaranthe. Those near this flower were said to experience it's everlasting effect, they stopped aging.
-            %br
-            %br
+        %h4
+          %em
             The gods looking to be amused decided to challenge mortals to a game. They would bestow the gift of the Amaranthe upon the first culture to prove their devotion to the god of their choice. Thus began the game of the Amaranthe...
     .panel.panel-primary
       .panel-heading
         %h3 The Objective
       .panel-body
         %h4
-          In Amaranthe players will select one of the gods from the Greek pantheon to devote their resources to. Each god grants the player a different set of abilities, influences the cards they start with in their deck and describes the amount of devotion the player's culture will need, to prove their worthiness and be granted the gift of the Amaranthe.
-          %br
-          %br
+          Amaranthe is a strategy deck-building card game with a twist.  Players will construct a deck of cards before the game, and only they will be able to buy cards from this deck, their opponents must buy from their own deck.
+        %h4
+          Players will select one of the gods from the Greek pantheon to devote their resources to. Each god grants the player a different set of abilities, influences the cards they start with in their starting deck and describes the amount of devotion the player's culture will need, to prove their worthiness, and be granted the gift of the Amaranthe.
+        %h4
+          Players will spend their resources to attract a variety of followers and acquire powerful artifacts with unique abilities that will improve their deck.
+        %h4
           A player will win when the amount of devotion needed to convince the gods reaches 0.
-        
+    .panel.panel-primary
+      .panel-heading
+        %h3 Before the Game
+      .panel-body
+        %h4
+          Each player will select a God to build a deck around. The god will describe the cards in the players starting deck.  It will then be up to the player to build their resource deck from cards in their collection. Resource decks are comprised of 50 cards, there can be no more than 3 of anyone card and no more than 1 of any card with a unique subtype. Once each player has a god, a starting deck and a resource deck, they have all the tools necessary to play a game of Amaranthe.
+    .panel.panel-primary
+      .panel-heading
+        %h3 Starting the Game
+      .panel-body
+        %h4
+          Each player's devotion track will be set to the number listed on their God. Each player's starting and resource decks will be randomized. Each player will have the top 5 cards of their resource deck displayed in front of them to form their initial temple. A random player will be picked to go first. The turn counter will be set to 1 and the time of day will be set to Daytime. The first player will draw a hand of 4 cards, the other player will draw a hand of 5 cards. Any additional effects provided by a player's god that mentions "At the start of the game..." will now happen. Players are now ready to begin playing.
+    .panel.panel-primary
+      .panel-heading
+        %h3 Resource Types
+      .panel-body
+        %h4
+          Cards in Amaranthe will provide a variety of different resources. These are:
+        %br
+        %h2.bold.center
+          Coin: Represented as "C"
+        %h4.resource.center
+          Coin is used to purchase new followers or artifacts from the temple.
+        %br
+        %h2.bold.center
+          Devotion: Represented as "D"
+        %h4.resource.center
+          Devotion is used to convince the god's you should receive the Amaranthe.
+        %br
+        %h2.bold.center
+          Skepticism: Represented as "S"
+        %h4.resource.center
+          Skepticism is used to increase the amount of devotion your opponent will need to overcome to win the game.
+        %br
+        %h2.bold.center
+          Priest: Represented as "P"
+        %h4.resource.center
+          Priests help your culture to be closer with your god. Priests may be purchased from the temple and will increase the effectiveness of many cards in the game. Some cards will gain a benefit for the number of priests you have in play, this will be represented by "P*". Other cards will only produce their additional effect if you control a minimum number of priests, this is represented by "n P+" where n is the number of priests required.  
+    .panel.panel-primary
+      .panel-heading
+        %h3 Playing the Game
+      .panel-body
+        %h4
+          A players turn will consist of the following phases:
+        %ul
+          %li
+            %h4.bold 
+              1. Start Phase
+            %ul
+              %li
+                %h4
+                  1. God Abilities - Any "start of turn" abilities from your god take place.
+              %li
+                %h4
+                  2. Artifact Abilities - Any "start of turn" abilites from your artifacts take place.
+              %li
+                %h4
+                  3. Discard - If your opponent forces you to discard a card of your choice, you will do it here.
+          %li
+            %h4.bold
+              2. Main Phase - Actions in the main phase may be taken in any order.
+            %ul
+              %li
+                %h4
+                  1. Play A Card - You may play a card from your hand, and resolve any effects described on the card.
+              %li
+                %h4
+                  2. Activate a God Ability - Some god's have abilities that you can activate during the main phase.
+              %li
+                %h4
+                  3. Activate an Artifact Ability - Some artifacts have abilities that can be activated during the main phase.
+              %li
+                %h4
+                  4. Buy a card from your Temple - If you have enough coin to pay a card's cost from your temple you may buy it. The card you buy will go into your discard pile, and a new card from the top of the resource deck will be placed in the temple. If you buy a priest it will be placed directly into play.
+              %li
+                %h4
+                  5. Worship - You may use all your devotion to reduce your devotion track by that amount. If you are now at 0 or less on your devotion track you win the game!
+          %li
+            %h4.bold
+              3. End Phase
+            %ul
+              %li
+                %h4
+                  1. Clean Up - During the Clean Up phase all followers that were played this turn and placed into the discard pile. Artifacts played this turn will remain in play.
+              %li
+                %h4
+                  2. Draw - Draw back up to 5 cards.
+              %li
+                %h4
+                  3. End of Turn God and Artifact Abilities - Any end of turn abilities from Gods and artifacts ("At end of turn") will take place during this step.
+              %li
+                %h4
+                  4. Pass - Your turn is over and your opponent will now start their turn.
