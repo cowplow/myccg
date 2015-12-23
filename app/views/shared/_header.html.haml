@@ -16,16 +16,16 @@
               %span.caret
             %ul.dropdown-menu( role="menu" aria-labelledby="dlabel" )
               %li{ role: "presentation" }
-                = link_to "Card", "#", { role: "menuitem" }
+                = link_to "Card", new_card_path, { role: "menuitem" }
               %li.divider
               %li{ role: "presentation", class: ( "disabled" unless current_user.is_admin? ) }
                 = link_to "Faction", "#", role: "menuitem"
               %li{ role: "presentation", class: ( "disabled" unless current_user.is_admin? ) }
-                = link_to "Expansion", "#", { role: "menuitem" }
+                = link_to "Expansion", new_expansion_path, { role: "menuitem" }
               %li{ role: "presentation", class: ( "disabled" unless current_user.is_admin? ) }
-                = link_to "Card Type", "#", { role: "menuitem" }
+                = link_to "Card Type", new_card_type_path, { role: "menuitem" }
               %li{ role: "presentation", class: ( "disabled" unless current_user.is_admin? ) }
-                = link_to "Card Subtype", "#", { role: "menuitem" }
+                = link_to "Card Subtype", new_card_subtype_path, { role: "menuitem" }
           %li.dropdown
             %a.dropdown-toggle( data-toggle="dropdown" href="#" id="dlabel" )
               Make a change to...

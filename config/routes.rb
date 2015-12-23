@@ -9,7 +9,7 @@ Rails.application.routes.draw do
 
   get '/register', to: 'users#new'
 
-  resources :cards, only: [:new, :create, :edit, :update, :show]
+  resources :cards, only: [:new, :create, :edit, :update, :show, :index]
 
   resources :card_types, only: [:new, :create, :edit, :update]
 

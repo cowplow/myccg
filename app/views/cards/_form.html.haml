@@ -1,0 +1,24 @@
+- if @card.errors.any?
+  = render 'shared/error_messages', obj: @card
+%section#card-form-container
+  .row
+    .col-sm-10.col-sm-offset-1
+      = bootstrap_form_for @card, html: { class: "form-horizontal" } do |f|
+        %header
+          %h1 Please enter the card details
+        %fieldset#card_inputs
+          = f.text_field :name, label: "Card Name"
+          = f.collection_select :expansion_id, Expansion.all, :id, :name
+          = f.collection_select :card_type, CardType.all, :id, :name
+          .well
+            = f.collection_check_boxes :card_subtypes, CardSubtype.all, :id, :name
+          = f.text_area :text1, label: "1st Ability"
+          = f.text_area :text2, label: "2nd Ability"
+          = f.text_area :text3, label: "3rd Ability"
+          = f.text_area :text4, label: "4th Ability"
+          = f.text_area :text5, label: "5th Ability"
+          = f.text_area :text6, label: "6th Ability"
+          = f.text_area :text7, label: "7th Ability"
+          = f.text_area :text8, label: "8th Ability"
+        %fieldset.actions.control-group.col-sm-1.controls
+          %input( type="submit" value="Submit" class="btn btn-primary" )
