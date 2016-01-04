@@ -5,8 +5,7 @@
         = link_to "Amaranthe CCG", root_path, class: "navbar-brand"
       %ul.nav.navbar-nav
         %li
-          %a( href="#" )
-            Cards
+          = link_to "Cards", cards_path
         %li
           = link_to "Rules", rules_path
         - if logged_in?  && current_user.is_super_user?

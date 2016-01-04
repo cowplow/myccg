@@ -3,9 +3,9 @@ class Card < ActiveRecord::Base
   
   belongs_to :expansion
   belongs_to :faction
-  has_one :card_type
+  has_and_belongs_to_many :card_types
+  has_and_belongs_to_many :card_subtypes
   has_many :comments
-  has_many :card_subtypes
 
   validates :name, presence: true, uniqueness: true
 

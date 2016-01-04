@@ -4,7 +4,7 @@ class CommentsController < ApplicationController
   def create
     @comment = Comment.new(comment_params)
     @card = Card.find_by(slug: params[:card_id])
-    @comment.creator = current_user
+    @comment.user = current_user
 
     if @comment.save
       @card.comments << @comment

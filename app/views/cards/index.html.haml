@@ -1,0 +1,22 @@
+%section#card_index
+  %table.table.table-striped.table-bordered
+    %thead
+      %tr
+        %th Card Name
+        %th Card Type
+        %th Comments
+        %th Last Updated
+    %tbody
+      - @cards.each do |card|
+        %tr
+          %td
+            = link_to card.name, card_path(card)
+          %td
+            = card.card_types.first.name
+          %td
+            = card.comments.count
+          %td
+            - if card.comments.count == 0
+              = fix_date(card.updated_at)
+            - else
+              = fix_date(card.comments.last.updated_at)

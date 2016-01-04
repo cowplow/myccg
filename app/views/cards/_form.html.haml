@@ -9,9 +9,11 @@
         %fieldset#card_inputs
           = f.text_field :name, label: "Card Name"
           = f.collection_select :expansion_id, Expansion.all, :id, :name
-          = f.collection_select :card_type, CardType.all, :id, :name
+          = f.collection_select :faction_id, Faction.all, :id, :name
+          = f.collection_select :card_types, CardType.all, :id, :name, label: "Card Type"
           .well
-            = f.collection_check_boxes :card_subtypes, CardSubtype.all, :id, :name
+            = f.collection_check_boxes :card_subtypes, CardSubtype.all, :id, :name, label: "Card Subtypes"
+          = f.text_field :cost, label: "Cost"
           = f.text_area :text1, label: "1st Ability"
           = f.text_area :text2, label: "2nd Ability"
           = f.text_area :text3, label: "3rd Ability"

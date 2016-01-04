@@ -1,3 +1,56 @@
-#show_card_container
-  %h2 This is a card
-  = render 'comments/comment'
+%section#show_card_container
+  %h2
+    = @card.name
+
+  %section#card_box
+    %div#card_border
+      #card_name
+        = @card.name
+        #card_cost
+          = @card.cost
+      #card_art
+        Card Art Here
+      #card_type
+        - if @card.card_subtypes.any?
+          = "#{@card.card_types.first.name} - "
+          - @card.card_subtypes.each do |cst|
+            = "#{cst.name} "
+        - else
+          = @card.card_types.first.name
+        %span.glyphicon.glyphicon-tower#card_icon 
+      #card_text
+        %ul
+          - if @card.text1 != ""
+            %li
+              = @card.text1
+          - if @card.text2 != ""
+            %li
+              = @card.text2
+          - if @card.text3 != ""
+            %li
+              = @card.text3
+          - if @card.text4 != ""
+            %li
+              = @card.text4
+          - if @card.text5 != ""
+            %li
+              = @card.text5
+          - if @card.text6 != ""
+            %li
+              = @card.text6
+          - if @card.text7 != ""
+            %li
+              = @card.text7
+          - if @card.text8 != ""
+            %li
+              = @card.text8
+
+  %hr
+
+  - if logged_in?
+    = render 'comments/form'
+
+  %hr  
+
+  - @card.comments.each do |comment|
+    = render 'comments/comment', comment: comment

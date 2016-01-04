@@ -1,6 +1,8 @@
 class User < ActiveRecord::Base
   include SlugableCtrembley
 
+  has_many :comments
+
   has_secure_password validation: false
 
   validates :username, presence: true, uniqueness: true

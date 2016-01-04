@@ -1,11 +1,14 @@
 - show_card ||= false
 
-#comment_container
+%section#comment_container
   .row
     .well.col-md-8
       %em
         - if show_card
           = comment.body on link_to comment.card.name, card_path(comment.card)
         - else
-          = comment.body
-           
+          %h4
+            = comment.body
+          %hr
+          %h5
+            = "Posted by #{comment.user.username.capitalize} at #{fix_date(comment.created_at)}"           

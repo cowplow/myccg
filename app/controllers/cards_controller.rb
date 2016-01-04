@@ -33,10 +33,11 @@ class CardsController < ApplicationController
   end
 
   def show
+    @comment = Comment.new
   end
 
   def index
-    @cards = Cards.all
+    @cards = Card.all
   end
 
   private
@@ -71,11 +72,12 @@ class CardsController < ApplicationController
         card_subtypes << CardSubtype.find(params[:card][:card_subtypes][x])
       end
 
-      params[:card][:card_subtypes] = card_subtypes
+      return params[:card][:card_subtypes] = card_subtypes
     end
+    params[:card][:card_subtypes] = []
   end
 
   def set_card_type
-    params[:card][:card_type] = CardType.find(params[:card][:card_type])
+    params[:card][:card_types] = [CardType.find(params[:card][:card_types])]
   end
 end

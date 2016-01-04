@@ -9,7 +9,11 @@ Rails.application.routes.draw do
 
   get '/register', to: 'users#new'
 
-  resources :cards, only: [:new, :create, :edit, :update, :show, :index]
+  resources :cards, only: [:new, :create, :edit, :update, :show, :index] do
+
+    resources :comments, only: [:create]
+
+  end
 
   resources :card_types, only: [:new, :create, :edit, :update]
 
@@ -20,4 +24,6 @@ Rails.application.routes.draw do
   resources :expansions, except: [:destroy]
 
   resources :users, only: [:show, :create, :edit, :update, :new]
+
+
 end

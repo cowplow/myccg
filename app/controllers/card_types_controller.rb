@@ -43,7 +43,7 @@ class CardTypesController < ApplicationController
   def can_create?
     if !current_user.is_admin?
       flash[:danger] = "Sorry you cannot perform that action"
-      redirect_to card_type_path(@card_type)
+      redirect_to root_path
     end
   end
 end
