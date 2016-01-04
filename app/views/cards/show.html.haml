@@ -2,6 +2,9 @@
   %h2
     = @card.name
 
+  - if logged_in? && current_user.is_admin?
+    = link_to "Edit this card", edit_card_path(@card)
+
   %section#card_box
     %div#card_border
       #card_name

@@ -24,9 +24,12 @@ class CardsController < ApplicationController
   end
 
   def update
+    set_card_type
+    set_card_subtypes
+
     if @card.update(card_params)
       flash[:success] = "Card updated successfully"
-      redirect_to show_card_path(@card)
+      redirect_to card_path(@card)
     else
       render :edit
     end
